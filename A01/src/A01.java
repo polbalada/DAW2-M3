@@ -14,6 +14,7 @@ public class A01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         //EX1
         //int x=12;
         /*double y=-23.56;
