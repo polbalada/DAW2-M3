@@ -14,17 +14,18 @@ public abstract class Shape {
     /**
      * Per defecte punt (0,0).
      */
-    final public static Point DEFAULT_POINT = new Point(0, 0);
+    final public static Point DEFAULT_POINT = new Point(10, 10);
     
     /**
      * Per defecte el color és VERMELL.
      */
-    final public static Color DEFAULT_COLOR = Color.RED;
+    //final public static Color DEFAULT_COLOR = Color.RED;
+    final public static Color DEFAULT_COLOR = Color.YELLOW;
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="PROPIETATS">
-    private Point point;
-    private Color color;
+    public Point point;
+    public Color color;
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="CONSTRUCTORS">
@@ -54,8 +55,12 @@ public abstract class Shape {
     public Color getColor() {
         return color;
     }
-//</editor-fold>
     
+    public void setPoint(Point point) {
+        this.point = new Point(point);
+    }
+//</editor-fold>
+   
 //<editor-fold defaultstate="collapsed" desc="ABSTRACT METHODS">
     /**
      * Dibuixa la figura en el papplet de crocessing corresponent

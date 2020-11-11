@@ -1,10 +1,12 @@
 package net.jaumebalmes.pguitart.practicapuntdepartida.jocs;
 //AUTOR: Pol
 
-import net.jaumebalmes.pguitart.practicapuntdepartida.figures.Circle;
+import net.jaumebalmes.pguitart.practicapuntdepartida.figures.Individu;
 
 
 public class Pilotes extends JocProcessing{
+    
+    Individu r = new Individu();
     public static void main(String[] args) {
         JocProcessing.runSketch(
             new String[]{"Quina passada"},
@@ -19,14 +21,17 @@ public class Pilotes extends JocProcessing{
     @Override
     public void iniciarJoc() {
         background(0);
-        Circle r = Circle.getCircle(this);
+        //Circle r = Circle.getCircle(this);
+        //Individu r = Individu.getIndividu(this);
         r.dibuixa(this);
     }
 
     @Override
     public void jugada() {
-        
-        //setup();
+        //Individu r = Individu.getIndividu(this);
+        background(0);
+        r.mou(this);
+        r.dibuixa(this);
     }
 
     @Override

@@ -5,6 +5,9 @@
  */
 package net.jaumebalmes.pguitart.practicapuntdepartida.figures;
 
+import java.awt.Point;
+import processing.core.PApplet;
+
 /**
  * Un individu és un Circle que es mou a una velocitat donada, 
  * rebota amb les parets i amb altres individus
@@ -17,6 +20,42 @@ package net.jaumebalmes.pguitart.practicapuntdepartida.figures;
  * 
  * @author pereg
  */
-public class Individu {
+public class Individu extends Circle{
+    private int vX = 5 /* Utils.atzarSigne()*/;
+    private int vY = 5;
+    
+    public static Individu getIndividu(PApplet pApplet){
+        return new Individu();
+    }
+    
+    public void mou(PApplet pApplet){
+        System.out.println(getPoint().x);
+        System.out.println(getPoint().y);
+        int x = getPoint().x;
+        int y = getPoint().y;
+        
+        if(y +radi >= pApplet.height || y+radi<=0){
+            vY=-vY;
+        }
+        if(x +radi>= pApplet.width || x+radi<=0){
+            vX=-vX;
+        }
+        x += vX;
+        y += vY;
+        
+        /*if (x  <= DEFAULT_RADI){
+        //la velocitat ha de ser positiva per separar-se del x=0
+        if (vX < 0) { vX = -vX; }
+        //vX = -vX;
+        //Math.abs(vX);
+        } else if (x >= pApplet.width){
+        vX = -vX;
+        //if (vX > 0) vX = -vX;
+        }     */      
+        
+        setPoint(new Point(x, y));
+        
+    }
+    
     
 }
