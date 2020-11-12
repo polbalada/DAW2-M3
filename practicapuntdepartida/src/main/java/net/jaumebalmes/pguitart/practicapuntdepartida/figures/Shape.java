@@ -14,7 +14,7 @@ public abstract class Shape {
     /**
      * Per defecte punt (0,0).
      */
-    final public static Point DEFAULT_POINT = new Point(10, 10);
+    final public static Point DEFAULT_POINT = new Point(100, 100);
     
     /**
      * Per defecte el color és VERMELL.

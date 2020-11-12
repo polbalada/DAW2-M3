@@ -34,10 +34,10 @@ public class Individu extends Circle{
         int x = getPoint().x;
         int y = getPoint().y;
         
-        if(y +radi >= pApplet.height || y+radi<=0){
+        if(y +radi >= pApplet.height || y-radi<=0){
             vY=-vY;
         }
-        if(x +radi>= pApplet.width || x+radi<=0){
+        if(x +radi>= pApplet.width || x-radi<=0){
             vX=-vX;
         }
         x += vX;
