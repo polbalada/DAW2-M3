@@ -5,6 +5,7 @@
  */
 package net.jaumebalmes.pguitart.practicapuntdepartida.figures;
 
+import java.awt.Color;
 import java.awt.Point;
 import processing.core.PApplet;
 
@@ -21,9 +22,17 @@ import processing.core.PApplet;
  * @author pereg
  */
 public class Individu extends Circle{
-    private int vX = 5 /* Utils.atzarSigne()*/;
-    private int vY = 5;
+    private int vX = 15 /* Utils.atzarSigne()*/;
+    private int vY = 15;
     
+    public Individu(int radi, Point point, Color color) {
+        super(radi,point, color);
+        //this.radi = radi;
+        
+    }
+
+    public Individu() {
+    }
     public static Individu getIndividu(PApplet pApplet){
         return new Individu();
     }
@@ -34,10 +43,10 @@ public class Individu extends Circle{
         int x = getPoint().x;
         int y = getPoint().y;
         
-        if(y +radi >= pApplet.height || y+radi<=0){
+        if(y +radi >= pApplet.height || y-radi<=0){
             vY=-vY;
         }
-        if(x +radi>= pApplet.width || x+radi<=0){
+        if(x +radi>= pApplet.width || x-radi<=0){
             vX=-vX;
         }
         x += vX;
