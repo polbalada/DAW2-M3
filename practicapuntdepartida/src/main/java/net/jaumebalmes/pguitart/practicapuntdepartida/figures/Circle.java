@@ -30,6 +30,7 @@ public class Circle extends Shape {
         
     }
     public Circle() {
+        //this(DEFAULT_RADI, DEFAULT_POINT, DEFAULT_COLOR);
         this(DEFAULT_RADI, DEFAULT_POINT, DEFAULT_COLOR);
     }
 
