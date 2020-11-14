@@ -7,6 +7,7 @@ package net.jaumebalmes.pguitart.practicapuntdepartida.figures;
 
 import java.awt.Color;
 import java.awt.Point;
+import net.jaumebalmes.pguitart.practicapuntdepartida.utils.Utils;
 import processing.core.PApplet;
 
 /**
@@ -22,24 +23,48 @@ import processing.core.PApplet;
  * @author pereg
  */
 public class Individu extends Circle{
-    private int vX = 15 /* Utils.atzarSigne()*/;
-    private int vY = 15;
+    private int vX = 1 * Utils.atzarSigne();
+    private int vY = 1 * Utils.atzarSigne();
     
     public Individu(int radi, Point point, Color color) {
-        super(radi,point, color);
+        super(radi,new Point(Utils.atzarInt(1,1000),Utils.atzarInt(1,600)), color);
         //this.radi = radi;
         
     }
 
     public Individu() {
+        super(DEFAULT_RADI,new Point(Utils.atzarInt(DEFAULT_RADI,1000),Utils.atzarInt(DEFAULT_RADI,600)), DEFAULT_COLOR);
     }
     public static Individu getIndividu(PApplet pApplet){
         return new Individu();
     }
     
+    private boolean xoquen(Individu altre){
+        return (this.getPoint().distance(altre.getPoint())<radi*2);
+        //        sumaRadis >= distancia entre centres;
+        
+    }
+    
+    public void controlXocs(Individu altre){
+        if (xoquen(altre)){
+//            si intercanviant velocitats s'allunyen
+//              l'individu 1 agafa la trajectoria del 2
+//              i el 2 de l'1. (intercvanvi velocitats)
+            int aux=vX; 
+            vX=altre.vX;
+            altre.vX=aux;
+            aux=vY;
+            vY=altre.vY;
+            altre.vY=aux;
+              
+        }
+        
+        
+    }
+    
     public void mou(PApplet pApplet){
-        System.out.println(getPoint().x);
-        System.out.println(getPoint().y);
+        /*System.out.println(getPoint().x);
+        System.out.println(getPoint().y);*/
         int x = getPoint().x;
         int y = getPoint().y;
         
@@ -49,18 +74,10 @@ public class Individu extends Circle{
         if(x +radi>= pApplet.width || x-radi<=0){
             vX=-vX;
         }
+        
         x += vX;
         y += vY;
-        
-        /*if (x  <= DEFAULT_RADI){
-        //la velocitat ha de ser positiva per separar-se del x=0
-        if (vX < 0) { vX = -vX; }
-        //vX = -vX;
-        //Math.abs(vX);
-        } else if (x >= pApplet.width){
-        vX = -vX;
-        //if (vX > 0) vX = -vX;
-        }     */      
+   
         
         setPoint(new Point(x, y));
         

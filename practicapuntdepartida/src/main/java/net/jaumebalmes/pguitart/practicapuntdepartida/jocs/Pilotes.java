@@ -9,8 +9,13 @@ import net.jaumebalmes.pguitart.practicapuntdepartida.utils.Utils;
 
 public class Pilotes extends JocProcessing{
     
-    Individu r = new Individu(10,new Point(Utils.atzarInt(1,1000),Utils.atzarInt(1,600)),Color.YELLOW);
-    Individu r2 = new Individu(10,new Point(Utils.atzarInt(1,1000),Utils.atzarInt(1,600)),Color.RED);
+    /*Individu r = new Individu(10,new Point(Utils.atzarInt(1,1000),Utils.atzarInt(1,600)),Color.GREEN);
+    Individu r2 = new Individu(10,new Point(Utils.atzarInt(1,1000),Utils.atzarInt(1,600)),Color.RED);*/
+    
+    Individu [] p = new Individu[50];
+    
+    
+            
     public static void main(String[] args) {
         JocProcessing.runSketch(
             new String[]{"Quina passada"},
@@ -20,26 +25,36 @@ public class Pilotes extends JocProcessing{
     @Override
     public void prepararJoc() {
         setSize(1000, 600);
+        for(int i=0;i<p.length;i++){
+            p[i]=new Individu();
+        }
         //fullScreen();
     }
 
     @Override
     public void iniciarJoc() {
         background(0);
-        //Circle r = Circle.getCircle(this);
-        //Individu r = Individu.getIndividu(this);
-        r.dibuixa(this);
-        r2.dibuixa(this);
+        /*r.dibuixa(this);
+        r2.dibuixa(this);*/
+        //p[0].dibuixa(this);
+        for(int i=0;i<p.length;i++)
+            p[i].dibuixa(this);
+        
     }
 
     @Override
     public void jugada() {
-        //Individu r = Individu.getIndividu(this);
         background(0);
-        r.mou(this);
+        for(int i=0;i<p.length;i++){
+            for (int n=i+1;n<p.length;n++)
+                p[i].controlXocs(p[n]);
+            p[i].mou(this);
+            p[i].dibuixa(this);
+        }
+        /*r.mou(this);
         r.dibuixa(this);
         r2.mou(this);
-        r2.dibuixa(this);
+        r2.dibuixa(this);*/
     }
 
     @Override

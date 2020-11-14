@@ -17,7 +17,7 @@ import processing.core.PApplet;
  * @author pereg
  */
 public class Circle extends Shape {
-    public static int DEFAULT_RADI = 40;
+    public static int DEFAULT_RADI = 10;
     //public static Point DEFAULT_POINT = new Point(100, 100);
     //super(DEFAULT_POINT);
     
