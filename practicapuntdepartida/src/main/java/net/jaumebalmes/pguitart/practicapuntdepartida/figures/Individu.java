@@ -23,8 +23,9 @@ import processing.core.PApplet;
  * @author pereg
  */
 public class Individu extends Circle{
-    private int vX = 1 * Utils.atzarSigne();
-    private int vY = 1 * Utils.atzarSigne();
+    private int vX = 10 * Utils.atzarSigne();
+    private int vY = 10 * Utils.atzarSigne();
+    
     
     public Individu(int radi, Point point, Color color) {
         super(radi,new Point(Utils.atzarInt(1,1000),Utils.atzarInt(1,600)), color);
@@ -57,9 +58,7 @@ public class Individu extends Circle{
             vY=altre.vY;
             altre.vY=aux;
               
-        }
-        
-        
+        } 
     }
     
     public void mou(PApplet pApplet){
