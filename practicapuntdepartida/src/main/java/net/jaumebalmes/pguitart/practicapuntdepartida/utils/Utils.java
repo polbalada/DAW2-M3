@@ -19,6 +19,9 @@ public class Utils {
      * @param maxInt
      * @return valor a l'atzat de 0 a maxInt.
      */
+    public static int atzarInt(int maxInt){
+        return r.nextInt(maxInt);
+    }
     public static int atzarInt(int minInt,int maxInt){
         return r.nextInt(maxInt - minInt) + minInt;
     }

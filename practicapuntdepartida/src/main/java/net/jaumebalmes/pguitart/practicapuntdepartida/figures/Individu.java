@@ -23,8 +23,8 @@ import processing.core.PApplet;
  * @author pereg
  */
 public class Individu extends Circle{
-    private int vX = 10 * Utils.atzarSigne();
-    private int vY = 10 * Utils.atzarSigne();
+    private int vX = 1 * Utils.atzarSigne();
+    private int vY = 1 * Utils.atzarSigne();
     
     
     public Individu(int radi, Point point, Color color) {
@@ -45,19 +45,26 @@ public class Individu extends Circle{
         //        sumaRadis >= distancia entre centres;
         
     }
+    private boolean canvi(Individu altre){
+        Point p1=new Point(this.point.x+this.vX, this.point.y+this.vY);
+        Point p2=new Point(altre.point.x+altre.vX, altre.point.y+altre.vY);
+        return p1.distance(p2)<this.point.distance(altre.point);
+    }
     
     public void controlXocs(Individu altre){
-        if (xoquen(altre)){
+
 //            si intercanviant velocitats s'allunyen
 //              l'individu 1 agafa la trajectoria del 2
 //              i el 2 de l'1. (intercvanvi velocitats)
-            int aux=vX; 
-            vX=altre.vX;
-            altre.vX=aux;
-            aux=vY;
-            vY=altre.vY;
-            altre.vY=aux;
-              
+        if (xoquen(altre)){
+            if(canvi(altre)){
+                int aux=vX; 
+                vX=altre.vX;
+                altre.vX=aux;
+                aux=vY;
+                vY=altre.vY;
+                altre.vY=aux;
+            }   
         } 
     }
     
@@ -67,11 +74,15 @@ public class Individu extends Circle{
         int x = getPoint().x;
         int y = getPoint().y;
         
-        if(y +radi >= pApplet.height || y-radi<=0){
-            vY=-vY;
+        if(y +radi >= pApplet.height){
+            vY=-Math.abs(vY);
+        }else if(y-radi<=0){
+            vY=Math.abs(vY);
         }
-        if(x +radi>= pApplet.width || x-radi<=0){
-            vX=-vX;
+        if(x +radi>= pApplet.width ){
+            vX=-Math.abs(vX);
+        }else if(x-radi<=0){
+            vX=Math.abs(vX);
         }
         
         x += vX;

@@ -24,8 +24,9 @@ public class Pilotes extends JocProcessing{
 
     @Override
     public void prepararJoc() {
-        //setSize(1000, 600);
-        fullScreen();
+        setSize(1000, 600);
+        
+        //fullScreen();
         for(int i=0;i<p.length;i++){
             p[i]=new Individu();
         }
@@ -35,6 +36,7 @@ public class Pilotes extends JocProcessing{
     @Override
     public void iniciarJoc() {
         background(0);
+        //frameRate(20);
         /*r.dibuixa(this);
         r2.dibuixa(this);*/
         //p[0].dibuixa(this);
