@@ -7,9 +7,6 @@ package net.jaumebalmes.pguitart.practicapuntdepartida.figures;
 
 import java.awt.Color;
 import java.awt.Point;
-import net.jaumebalmes.pguitart.practicapuntdepartida.utils.Utils;
-import processing.core.PApplet;
-
 import processing.core.PApplet;
 
 /**

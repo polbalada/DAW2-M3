@@ -23,8 +23,16 @@ import processing.core.PApplet;
  * @author pereg
  */
 public class Individu extends Circle{
-    private int vX = 1 * Utils.atzarSigne();
-    private int vY = 1 * Utils.atzarSigne();
+    private int vX = Utils.atzarInt(1, 10) * Utils.atzarSigne();
+    private int vY = Utils.atzarInt(1, 10) * Utils.atzarSigne();
+    //private int vX = 1 * Utils.atzarSigne();
+    //private int vY = 1 * Utils.atzarSigne();
+    
+    public int infectat=0; 
+                //0 -> Sà
+                //1 -> Infectat
+                //2 -> Recuperat
+    public int tempsRecuperacio= Utils.atzarInt(100,1000);
     
     
     public Individu(int radi, Point point, Color color) {
@@ -42,13 +50,20 @@ public class Individu extends Circle{
     
     private boolean xoquen(Individu altre){
         return (this.getPoint().distance(altre.getPoint())<radi*2);
-        //        sumaRadis >= distancia entre centres;
-        
+        //        sumaRadis >= distancia entre centres; 
     }
+    
     private boolean canvi(Individu altre){
         Point p1=new Point(this.point.x+this.vX, this.point.y+this.vY);
         Point p2=new Point(altre.point.x+altre.vX, altre.point.y+altre.vY);
         return p1.distance(p2)<this.point.distance(altre.point);
+    }
+    
+    public void infectar(Individu altre){
+        if(xoquen(altre) && infectat==1){
+            altre.infectat=1;
+            altre.setColor(new Color(255,0,0));
+        }
     }
     
     public void controlXocs(Individu altre){

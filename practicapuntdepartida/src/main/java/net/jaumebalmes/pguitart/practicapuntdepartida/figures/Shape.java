@@ -59,6 +59,10 @@ public abstract class Shape {
     public void setPoint(Point point) {
         this.point = new Point(point);
     }
+    
+    public void setColor(Color color) {
+        this.color = color;
+    }
 //</editor-fold>
    
 //<editor-fold defaultstate="collapsed" desc="ABSTRACT METHODS">
