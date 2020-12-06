@@ -5,13 +5,17 @@ import java.time.Month;
 import java.util.Objects;
 
 //AUTOR: Pol
-public class Segell {
+public class Segell{
     final public static double DEFAULT_VALUE = 0;
     /*MALAMENTE TRA TRA
     public static LocalDate DEFAULT_DATE = LocalDate.now();*/
 
+    private int id;
     private double valor;
     private LocalDate data;
+    private String pais;
+    
+    private static int contador = 0;
 
     @Override
     public int hashCode() {
@@ -42,34 +46,37 @@ public class Segell {
         return true;
     }
 
-    public Segell(double valor, LocalDate data) {
+    public Segell(double valor, LocalDate data, String pais) {
         /*Millor comprovar amb el set
         //if ( valor < 0 ) throw new IllegalArgumentException("Valor negatiu");*/
         if ( data == null ) throw new IllegalArgumentException("Data NULL");
         setValor(valor);
         this.data = data;
+        this.pais = pais;
+        id=contador;
+        contador++;
     }
 
     public Segell() {
-        this(DEFAULT_VALUE,null);
+        this(DEFAULT_VALUE,null,null);
     }
 
     @Override
     public String toString() {
-        return "Segells{" + "valor=" + valor + ", data=" + data + '}';
+        return "Segells{" + "valor=" + valor + ", data=" + data + ", pais=" + pais +'}';
     }
     
     public static void main(String[] args){
         try{
-            Segell s1 = new Segell(100, LocalDate.now());
-            Segell s2 = new Segell(10, LocalDate.of(2001, Month.JANUARY, 1));
+            Segell s1 = new Segell(100, LocalDate.now(),"Andorra");
+            Segell s2 = new Segell(10, LocalDate.of(2001, Month.JANUARY, 1),"Espanya");
             System.out.println(s1);
             System.out.println(s2);
         }catch(Exception e){
             
         }
         try{
-            Segell s3 = new Segell(10, LocalDate.of(2001, Month.FEBRUARY, 30));
+            Segell s3 = new Segell(10, LocalDate.of(2001, Month.FEBRUARY, 30), "França");
         }catch (DateTimeException e){
             System.out.println(e.getMessage());
             
@@ -84,4 +91,11 @@ public class Segell {
         this.valor = valor;
     }
 
+    public String getPais() {
+        return pais;
+    }
+
+    public double getValor() {
+        return valor;
+    }
 }
