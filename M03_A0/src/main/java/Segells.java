@@ -31,4 +31,8 @@ public class Segells {
        } catch (Exception e) {
        }
    }
+   
+   static void ordenarComparable(){       
+        Arrays.sort(segells,0,nSegells);
+   }
 }

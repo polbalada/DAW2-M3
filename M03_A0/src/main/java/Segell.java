@@ -5,18 +5,26 @@ import java.time.Month;
 import java.util.Objects;
 
 //AUTOR: Pol
-public class Segell{
+public class Segell implements Comparable<Segell>{
     final public static double DEFAULT_VALUE = 0;
     /*MALAMENTE TRA TRA
     public static LocalDate DEFAULT_DATE = LocalDate.now();*/
 
     private int id;
-    private double valor;
+    private Double valor;
     private LocalDate data;
     private String pais;
     
     private static int contador = 0;
 
+    @Override
+    public int compareTo(Segell o) {
+        if(o.getPais().compareTo(this.getPais())==0)
+            return o.getValor().compareTo(this.getValor());
+        return this.getPais().compareTo(o.getPais());
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -95,7 +103,7 @@ public class Segell{
         return pais;
     }
 
-    public double getValor() {
+    public Double getValor() {
         return valor;
     }
 }

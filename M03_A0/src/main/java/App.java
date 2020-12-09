@@ -26,6 +26,10 @@ public class App {
         System.out.println("\nOrdenat per Pais i Valor");
         Segells.ordenar2();
         Segells.mostrarTots();
+        
+        System.out.println("\nOrdenat per Pais i Valor amb Comparable");
+        Segells.ordenarComparable();
+        Segells.mostrarTots();
     }
 
 }
