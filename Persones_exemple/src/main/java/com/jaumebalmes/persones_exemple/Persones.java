@@ -34,9 +34,10 @@ public class Persones {
     }
     
     static void mostrarTots() {
-        persones.forEach(p -> {
+        for (Persona p : persones) {
             System.out.println(p);
-        });//        for(int n=0;n<nPersones;n++)
+        }
+//        for(int n=0;n<nPersones;n++)
 //            System.out.println(persones[n]);
     }
     

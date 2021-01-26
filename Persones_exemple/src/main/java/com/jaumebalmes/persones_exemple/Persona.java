@@ -4,7 +4,7 @@ package com.jaumebalmes.persones_exemple;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Persona implements Comparable<Persona>{
+public class Persona implements Comparable<Persona>, GettersGenerics {
     private String nom;
     private String cognom1;
     private String cognom2;
@@ -71,6 +71,21 @@ public class Persona implements Comparable<Persona>{
     @Override
     public String toString() {
         return "Persona{" + "nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", dni=" + dni + ", DataNaixement=" + DataNaixement + '}';
+    }
+
+    @Override
+    public Number getValor() {
+        return 0;
+    }
+
+    @Override
+    public LocalDate getData() {
+        return DataNaixement;
+    }
+
+    @Override
+    public String getAlfabetic() {
+        return cognom1;
     }
  
 }
