@@ -21,15 +21,15 @@ public class MapesDemo {
     }
     public static void main(String[] args) {
         Map<Character, Integer> mapa;
-        mapa = freqCaracters("aaabbbbzzz");
+        mapa = freqCaracters("aaabbbbzzza");
         System.out.println(mapa);
 
         for(Map.Entry<Character, Integer> e: mapa.entrySet()){
             System.out.println(e.getKey() + "-" + e.getValue());
         }
         
-        ArrayList<Map.Entry<Character, Integer>> llista;
-        //llista = 
+        //ArrayList<Map.Entry<Character, Integer>> llista;
+        //llista = (ArrayList<Map.Entry<Character, Integer>>) freqCaracters("aaabbbbzzz");
 
     }
 }

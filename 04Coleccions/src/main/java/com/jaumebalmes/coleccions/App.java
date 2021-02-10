@@ -8,15 +8,14 @@ public class App {
         joan.ferLike(30000);
         joan.ferLike(40000);
         System.out.print("Joan");
-        //joan.mostrar();
-        //Bot.ferLikesRandom(joan, 10, 1, 30);
+        Bot.ferLikesRandom(joan, 10, 1, 30);
         joan.mostrar();
         
         LikesUsuari maria = new LikesUsuari("Maria");
-        //Bot.ferLikesRandom(maria, 20, 1, 30);
-        maria.ferLike(40000);
+        maria.ferLike(1000);
+        maria.ferLike(2000);
         maria.ferLike(30000);
-        maria.ferLike(300);
+        Bot.ferLikesRandom(maria, 20, 1, 30);
         System.out.print("Maria");
         maria.mostrar();
         
@@ -25,6 +24,9 @@ public class App {
         
         System.out.print("Diferencia");
         System.out.println(joan.diferencia(maria));
+        
+        System.out.print("Llista de fotografies");
+        Fotografies.mostrarTot();
     }
 
 }

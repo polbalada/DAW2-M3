@@ -1,7 +1,6 @@
 package com.jaumebalmes.coleccions;
 //AUTOR: Pol
 
-import java.util.Collection;
 import java.util.TreeSet;
 
 
@@ -16,8 +15,10 @@ public class LikesUsuari {
     public void ferLike(int id){
         if(likes.contains(id)){
             likes.remove(id);
+            Fotografies.treureLike(id);
         }else{
             likes.add(id);
+            Fotografies.afegirLike(id);
         }
     }
     
@@ -31,9 +32,8 @@ public class LikesUsuari {
         return interseccio;
     }
     public TreeSet<Integer> diferencia(LikesUsuari u){
-        TreeSet<Integer> diferencia = new TreeSet<>(likes);//(TreeSet<Integer>) u.getLikes().clone();
-        //diferencia.addAll(likes);
-        diferencia.removeAll(u.getLikes()/*this.interseccio(u)*/);
+        TreeSet<Integer> diferencia = new TreeSet<>(likes);
+        diferencia.removeAll(u.getLikes());
         return diferencia;
     }
 
