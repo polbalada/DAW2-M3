@@ -1,17 +1,20 @@
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 //AUTOR: Pol
 public class Historial {
-    private static ArrayList<String> historial = new ArrayList <>();
+    private static Map<LocalDateTime, String> historial = new HashMap<>();
 
     static void afegir(String url) {
-        historial.add(url);
+        LocalDateTime a = LocalDateTime.now();
+        historial.put(a,url);
+;
     }
     static void mostrar(){
-        //System.out.println(historial.toString());
-        for(String h: historial){
-            System.out.println(h);
+        for(Map.Entry<LocalDateTime, String> e: historial.entrySet()){
+            System.out.println(e.getKey() + " - " + e.getValue());
         }
     }
 }
